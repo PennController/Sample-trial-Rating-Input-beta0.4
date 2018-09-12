@@ -3,18 +3,17 @@ PennController.ResetPrefix(null);
 
 var items = [
     ["trial", "PennController", PennController(
-        newText("question", "Which patch do you find greener?")
-            .print()
+        newText("test sentence", "The fish swim in a tank which is perfectly round")
+            .print()        // A test sentence
         ,
-        // We just add two images on the screen, hosted on a distant server
-        newImage("patch1", "http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/green1.png")
-            .print()
+        newImage("competitor", "http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/1fishSquareTank.png")
+            .print()        // An image with 1 fish that swims in a square tank
         ,
-        newImage("patch2", "http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/green2.png")
-            .print()
+        newImage("target", "http://files.lab.florianschwarz.net/ibexfiles/PennController/SampleTrials/2fishRoundTank.png")
+            .print()        // An image with 2 fish that swim in a round tank
         ,
-        newSelector("patches") // And we indicate that they belong to a selection group
-            .settings.add(getImage("patch1"), getImage("patch2"))
-            .wait() // We wait for a selection before validation
+        newSelector("tank") // We indicate that target+competitor belong to a selection group
+            .settings.add( getImage("target") , getImage("competitor") )
+            .wait()         // On hold until target or competitor is selected
     )]
 ];
